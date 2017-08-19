@@ -1,3 +1,40 @@
 canvas {
   border: 1px solid black;
 }
+
+p {
+  display:inline-block;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#button-box {
+  margin-top: 20px;
+}
+
+#button-box button {
+  background-color: magenta;
+  border-color: black;
+  border-radius: 25px;
+  color: green;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  margin: 10px;
+  width: 100px;
+}
+
+#game-instructions {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  left: 100px;
+  position: absolute;
+  top: 110px;
+  width: 500px;
+}
