@@ -2,26 +2,10 @@ canvas {
   border: 1px solid black;
 }
 
-#game-instructions {
-  width: 500px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  position: absolute;
-  left: 100px;
-  top: 110px;
-
-}
-
-
 p {
   display:inline-block;
-  margin-bottom: 20px;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 #button-box {
@@ -29,14 +13,28 @@ p {
 }
 
 #button-box button {
-  width: 100px;
-  height: 50px;
-  display: inline-block;
-  margin: 10px;
   background-color: magenta;
-  color: green;
-  border-radius: 25px;
   border-color: black;
+  border-radius: 25px;
+  color: green;
+  display: inline-block;
   font-size: 20px;
   font-weight: bold;
+  height: 50px;
+  margin: 10px;
+  width: 100px;
+}
+
+#game-instructions {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  left: 100px;
+  position: absolute;
+  top: 110px;
+  width: 500px;
 }
