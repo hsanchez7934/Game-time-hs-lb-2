@@ -26,4 +26,11 @@ describe('Square', function() {
     assert.equal(square.y, 20);
   })
 
+  it('should draw a square to the canvas', function() {
+    var square = new Square(20, 20, 20, 20, "red");
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d')
+    assert.equal(square.draw(context), true);
+
+  })
 })
