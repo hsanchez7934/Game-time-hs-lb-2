@@ -8,11 +8,11 @@ p {
   margin-bottom: 20px;
 }
 
-#button-box {
+.button-box {
   margin-top: 20px;
 }
 
-#button-box button {
+.button-box button {
   background-color: magenta;
   border-color: black;
   border-radius: 25px;
@@ -22,10 +22,10 @@ p {
   font-weight: bold;
   height: 50px;
   margin: 10px;
-  width: 100px;
+  width: 125px;
 }
 
-#game-instructions {
+.game-box {
   align-items: center;
   background-color: black;
   color: white;
@@ -37,4 +37,8 @@ p {
   position: absolute;
   top: 110px;
   width: 500px;
+}
+
+#game-over-boundary {
+  display: none;
 }

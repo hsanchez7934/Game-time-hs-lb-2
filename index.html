@@ -9,16 +9,27 @@
   <canvas id="game" width="1000" height="700">
 
   </canvas>
-  <div id="game-instructions">
+  <div class="game-box" id="game-instructions">
     <p id="instruction1">Use the arrow keys to control the snake.</p>
     <p id="instruction2">Press the spacebar to pause the game.</p>
-    <div id="button-box">
-      <button id="level1">Level 1</button>
-      <button id="level2">Level 2</button>
-      <button id="level3">Level 3</button>
+    <div class="button-box">
+      <button id="easy">EASY</button>
+      <button id="medium">MEDIUM</button>
+      <button id="difficult">DIFFICULT</button>
     </div>
   </div>
-  <button id='restart-btn'>Restart</button>
+  <div class="game-box" id="game-over-boundary" >
+    <p>You went out of bounds.</p>
+    <p>You died!</p>
+    <p>Press RESTART to keep your stats and begin again.</p>
+    <p>Press REFRESH to wipe your slate clean and start over.</p>
+    <div class="button-box">
+      <button id="restart-btn">RESTART</button>
+      <button id="refresh-btn">REFRESH</button>
+
+    </div>
+  </div>
+  <!-- <button id='restart-btn'>Restart</button> -->
 
   <script src="main.bundle.js"></script>
 </body>
