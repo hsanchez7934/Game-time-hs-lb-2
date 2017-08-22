@@ -9,9 +9,15 @@
   <canvas id="game" width="1000" height="700">
 
   </canvas>
+  <p>Points: <span id="points">0</span></p>
+  <p>Death Count: <span id="deaths">0</span></p>
+
   <div class="game-box" id="game-instructions">
-    <p id="instruction1">Use the arrow keys to control the snake.</p>
-    <p id="instruction2">Press the spacebar to pause the game.</p>
+    <p>Use the arrow keys to control the snake.</p>
+    <p>Press the spacebar to pause the game.</p>
+    <p>Eat the apple, watch the snake grow!</p>
+    <p>Gain points for every segment the snake grows.</p>
+
     <div class="button-box">
       <button id="easy">EASY</button>
       <button id="medium">MEDIUM</button>
@@ -21,6 +27,7 @@
   <div class="game-box" id="game-over-boundary" >
     <p>You went out of bounds.</p>
     <p>You died!</p>
+    <p><span id="death-penalty">0</span> Points were deducted from your score.<p>
     <p>Press RESTART to keep your stats and begin again.</p>
     <p>Press REFRESH to wipe your slate clean and start over.</p>
     <div class="button-box">
@@ -29,7 +36,6 @@
 
     </div>
   </div>
-  <!-- <button id='restart-btn'>Restart</button> -->
 
   <script src="main.bundle.js"></script>
 </body>
