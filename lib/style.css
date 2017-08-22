@@ -8,6 +8,10 @@ p {
   margin-bottom: 20px;
 }
 
+img {
+  display: none;
+}
+
 .button-box {
   margin-top: 20px;
 }
