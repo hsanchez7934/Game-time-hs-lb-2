@@ -182,7 +182,20 @@ describe('Snake', () => {
     assert.equal(segment.direction, 'up');
   });
 
-  it('should add segments to the snakeArray', () => {
+  it.skip('should add segments to the snakeArray', () => {
 
   });
+
+  it('should increase points and segAddCount by 1', () => {
+    assert.equal(snake.segAddCount, 0);
+    assert.equal(snake.points, 0)
+
+    snake.increaseScore();
+    snake.increaseScore();
+    snake.increaseScore();
+
+    assert.equal(snake.segAddCount, 3);
+    assert.equal(snake.points, 3);
+
+  })
 });
