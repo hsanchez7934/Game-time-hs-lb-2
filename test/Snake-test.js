@@ -197,5 +197,22 @@ describe('Snake', () => {
     assert.equal(snake.segAddCount, 3);
     assert.equal(snake.points, 3);
 
-  })
+  });
+
+  it('should reset segAddCount to 0 and appleDetected to false', () => {
+    assert.equal(snake.segAddCount, 0);
+    assert.equal(snake.appleDetected, false);
+
+    snake.segAddCount = 5;
+    snake.appleDetected = true;
+
+    assert.equal(snake.segAddCount, 5);
+    assert.equal(snake.appleDetected, true);
+
+    snake.resetCounter();
+
+    assert.equal(snake.segAddCount, 0);
+    assert.equal(snake.appleDetected, false);
+  }
+  )
 });
