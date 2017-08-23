@@ -3,11 +3,9 @@ const Game = require('../lib/Game.js');
 const Food = require('../lib/Food.js');
 const Segment = require('../lib/Segment.js');
 const Snake = require('../lib/Snake.js');
-const jsdom = require('jsdom');
+const jsdom = require('jsdom-global');
 
 jsdom()
-
-const dom = new JSDOM('')
 
 describe('Snake', () => {
   let snake;
@@ -70,11 +68,11 @@ describe('Snake', () => {
     assert.isObject(segment);
     assert.equal(segment.direction, 'right');
 
-    assert.equal(segment.x, 20);
-    assert.equal(segment.y, 60);
-    snake.move();
     assert.equal(segment.x, 40);
-    assert.equal(segment.y, 60);
+    assert.equal(segment.y, 80);
+    snake.move();
+    assert.equal(segment.x, 80);
+    assert.equal(segment.y, 80);
   });
 
   it('should be able to move left', () => {
@@ -89,11 +87,11 @@ describe('Snake', () => {
     segment.direction = 'left';
     assert.equal(segment.direction, 'left');
 
-    assert.equal(segment.x, 20);
-    assert.equal(segment.y, 60);
+    assert.equal(segment.x, 40);
+    assert.equal(segment.y, 80);
     snake.move();
     assert.equal(segment.x, 0);
-    assert.equal(segment.y, 60);
+    assert.equal(segment.y, 80);
   });
 
   it('should be able to move up', () => {
@@ -108,10 +106,10 @@ describe('Snake', () => {
     segment.direction = 'up';
     assert.equal(segment.direction, 'up');
 
-    assert.equal(segment.x, 20);
-    assert.equal(segment.y, 60);
+    assert.equal(segment.x, 40);
+    assert.equal(segment.y, 80);
     snake.move();
-    assert.equal(segment.x, 20);
+    assert.equal(segment.x, 40);
     assert.equal(segment.y, 40);
   });
 
@@ -127,11 +125,11 @@ describe('Snake', () => {
     segment.direction = 'down';
     assert.equal(segment.direction, 'down');
 
-    assert.equal(segment.x, 20);
-    assert.equal(segment.y, 60);
+    assert.equal(segment.x, 40);
+    assert.equal(segment.y, 80);
     snake.move();
-    assert.equal(snake.snakeArray[0].x, 20);
-    assert.equal(snake.snakeArray[0].y, 80);
+    assert.equal(segment.x, 40);
+    assert.equal(segment.y, 120);
 
   });
 
@@ -168,7 +166,49 @@ describe('Snake', () => {
     assert.equal(snakeSegment3.data, 2);
   })
 
-  it('should be able to change direction', () => {
+  it('should be able to change direction to left', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let segment = snake.snakeArray[0];
+
+    assert.equal(segment.direction, 'right');
+    segment.direction = 'down';
+    assert.equal(segment.direction, 'down');
+
+    let event = {
+      keyCode: 37
+    }
+
+    let keyNum = event.keyCode;
+
+    snake.changeDirection(keyNum);
+    assert.equal(segment.direction, 'left');
+  });
+
+  it('should be able to change direction to right', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let segment = snake.snakeArray[0];
+
+    assert.equal(segment.direction, 'right');
+    segment.direction = 'up';
+    assert.equal(segment.direction, 'up');
+
+    let event = {
+      keyCode: 39
+    }
+
+    let keyNum = event.keyCode;
+
+    snake.changeDirection(keyNum);
+    assert.equal(segment.direction, 'right');
+  });
+
+  it('should be able to change direction to up', () => {
     snake.instantiate();
     assert.instanceOf(snake.snakeArray[0], Segment);
     assert.equal(snake.snakeArray.length, 1);
@@ -187,8 +227,39 @@ describe('Snake', () => {
     assert.equal(segment.direction, 'up');
   });
 
-  it.skip('should add segments to the snakeArray', () => {
+  it('should be able to change direction to down', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
 
+    let segment = snake.snakeArray[0];
+
+    assert.equal(segment.direction, 'right');
+
+    let event = {
+      keyCode: 40
+    }
+
+    let keyNum = event.keyCode;
+
+    snake.changeDirection(keyNum);
+    assert.equal(segment.direction, 'down');
+  });
+
+
+  it.skip('should add segments to the snakeArray', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let segment = snake.snakeArray[0];
+
+    segment.numSegsAdd = 2;
+    segment.segAddCount = 1;
+    segment.appleDetected = true;
+
+    snake.addSegment();
+    assert.equal(snake.snakeArray.length, 2);
   });
 
   it('should increase points and segAddCount by 1', () => {
@@ -218,5 +289,98 @@ describe('Snake', () => {
     assert.equal(snake.segAddCount, 0);
     assert.equal(snake.appleDetected, false);
   });
+
+  it('if snake head direction is right should create new seg to the right of head', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let head = snake.snakeArray[0];
+    let length = snake.snakeArray.length;
+
+    let newSeg = snake.newSeg(head.direction, head, length);
+
+    assert.instanceOf(newSeg, Segment);
+
+    assert.equal(newSeg.width, 40);
+    assert.equal(newSeg.height, 40);
+    assert.equal(newSeg.x, 80);
+    assert.equal(newSeg.y, 80);
+    assert.equal(newSeg.direction, 'right');
+
+  })
+
+  it('if snake head direction is left should create new seg to the left of head', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let head = snake.snakeArray[0];
+
+    head.direction = 'left';
+    assert.equal(head.direction, 'left');
+
+    let length = snake.snakeArray.length;
+
+    let newSeg = snake.newSeg(head.direction, head, length);
+
+    assert.instanceOf(newSeg, Segment);
+
+    assert.equal(newSeg.width, 40);
+    assert.equal(newSeg.height, 40);
+    assert.equal(newSeg.x, 0);
+    assert.equal(newSeg.y, 80);
+    assert.equal(newSeg.direction, 'left');
+
+  });
+
+  it('if snake head direction is up should create new seg to the bottom of head', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let head = snake.snakeArray[0];
+
+    head.direction = 'up';
+    assert.equal(head.direction, 'up');
+
+    let length = snake.snakeArray.length;
+
+    let newSeg = snake.newSeg(head.direction, head, length);
+
+    assert.instanceOf(newSeg, Segment);
+
+    assert.equal(newSeg.width, 40);
+    assert.equal(newSeg.height, 40);
+    assert.equal(newSeg.x, 40);
+    assert.equal(newSeg.y, 40);
+    assert.equal(newSeg.direction, 'up');
+
+  });
+
+  it('if snake head direction is down should create new seg to the top of head', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
+
+    let head = snake.snakeArray[0];
+
+    head.direction = 'down';
+    assert.equal(head.direction, 'down');
+
+    let length = snake.snakeArray.length;
+
+    let newSeg = snake.newSeg(head.direction, head, length);
+
+    assert.instanceOf(newSeg, Segment);
+
+    assert.equal(newSeg.width, 40);
+    assert.equal(newSeg.height, 40);
+    assert.equal(newSeg.x, 40);
+    assert.equal(newSeg.y, 120);
+    assert.equal(newSeg.direction, 'down');
+
+  });
+
 
 });
