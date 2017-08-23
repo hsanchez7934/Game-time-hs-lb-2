@@ -380,7 +380,7 @@ describe('Snake', () => {
 
   });
 
-  it('should detect is snake is out of bounds', () => {
+  it('should detect if snake is out of bounds', () => {
     snake.instantiate();
     assert.instanceOf(snake.snakeArray[0], Segment);
     assert.equal(snake.snakeArray.length, 1);
