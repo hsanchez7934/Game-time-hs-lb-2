@@ -1,13 +1,13 @@
 const {assert} = require('chai');
 const Food = require('../lib/Food.js');
 
-describe('Food', function() {
+describe('Food', () => {
 
-    let food;
+  let food;
 
-    beforeEach(() => {
-      food = new Food(20, 20, 20, 20);
-    });
+  beforeEach(() => {
+    food = new Food(20, 20, 20, 20);
+  });
 
   it('should take a height', () => {
     assert.equal(food.height, 20);
@@ -27,6 +27,16 @@ describe('Food', function() {
 
   it('should start off as red in color', () => {
     assert.equal(food.color, '#f00');
+  });
+
+  it('should change x and y values of food', () => {
+    assert.equal(food.x, 20);
+    assert.equal(food.y, 20);
+
+    food.move(50, 50);
+
+    assert.equal(food.x, 50);
+    assert.equal(food.y, 50);
   });
 
 })
