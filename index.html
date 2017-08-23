@@ -6,12 +6,15 @@
 </head>
 <body>
 
-  <canvas id="game" width="1000" height="700">
+  <canvas id="game" width="1550" height="900">
 
   </canvas>
-  <p>Points: <span id="points">0</span></p>
-  <p>Lives: <span id="deaths">0</span></p>
-  <p>EatCount: <span id="eat-count">0</span></p>
+  <div class="stats">
+    <div class="sub-stats"><img src="lib/images/score-icon.png" id="score"/><p id="points">0</p></div>
+    <div class="sub-stats"><img src="lib/images/lives-icon.png" id="lives"/><p id="deaths">0</p></div>
+    <div class="sub-stats"><img src="lib/images/food-icon.png" id="food"/><p id="eat-count">0</p></div>
+    <img src="lib/images/babysnake.png" id="babysnake"/>
+  </div>
 
 
   <div class="game-box" id="game-instructions">
@@ -37,6 +40,14 @@
       <button id="refresh-btn">REFRESH</button>
 
     </div>
+  </div>
+    <div class="game-box" id="zero-lives-screen" >
+      <p>You died!</p>
+      <p>You have no more lives!</p>
+      <p>Click below to start another game.</p>
+      <div class="button-box">
+        <button id="start-over">REFRESH</button>
+      </div>
   </div>
 
   <img src="lib/images/apple.png" id="apple"/>
