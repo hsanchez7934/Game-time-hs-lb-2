@@ -11,7 +11,7 @@ describe('Snake', () => {
   let snake;
 
   beforeEach(() => {
-    snake = new Snake(context);
+    snake = new Snake();
   })
 
   it('should be a function', () => {
@@ -247,16 +247,14 @@ describe('Snake', () => {
   });
 
 
-  it.skip('should add segments to the snakeArray', () => {
+  it('should add segments to the snakeArray', () => {
     snake.instantiate();
     assert.instanceOf(snake.snakeArray[0], Segment);
     assert.equal(snake.snakeArray.length, 1);
 
-    let segment = snake.snakeArray[0];
-
-    segment.numSegsAdd = 2;
-    segment.segAddCount = 1;
-    segment.appleDetected = true;
+    snake.numSegsAdd = 2;
+    snake.segAddCount = 1;
+    snake.appleDetected = true;
 
     snake.addSegment();
     assert.equal(snake.snakeArray.length, 2);
