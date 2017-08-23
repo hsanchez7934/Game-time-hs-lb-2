@@ -10,7 +10,7 @@ jsdom()
 const dom = new JSDOM('')
 
 describe('Snake', () => {
-    let snake;
+  let snake;
 
   beforeEach(() => {
     snake = new Snake(context);
@@ -174,15 +174,16 @@ describe('Snake', () => {
     assert.equal(snake.snakeArray.length, 1);
 
     let segment = snake.snakeArray[0];
+
     assert.equal(segment.direction, 'right');
 
     let event = {
       keyCode: 38
     }
 
-    keyNum = event.keyCode;
+    let keyNum = event.keyCode;
 
-    snake.changeDirection();
+    snake.changeDirection(keyNum);
     assert.equal(segment.direction, 'up');
   });
 
