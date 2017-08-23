@@ -382,5 +382,91 @@ describe('Snake', () => {
 
   });
 
+  it('should detect is snake is out of bounds', () => {
+    snake.instantiate();
+    assert.instanceOf(snake.snakeArray[0], Segment);
+    assert.equal(snake.snakeArray.length, 1);
 
+    let newSnake = snake.snakeArray[0];
+
+    assert.equal(newSnake.x, 40);
+    assert.equal(newSnake.y, 80);
+
+    newSnake.x = -1;
+    newSnake.y = -1;
+
+    assert.equal(newSnake.x, -1);
+    assert.equal(newSnake.y, -1);
+
+
+    let canvas = {
+      height: 300,
+      width: 300
+    }
+
+    let context = {};
+
+    let game = new Game(canvas, context);
+
+    assert.instanceOf(game, Game);
+    assert.equal(game.canvas.width, 300);
+    assert.equal(game.canvas.height, 300);
+    assert.equal(game.gameOver, false);
+    assert.equal(game.lives, 5);
+    assert.equal(game.deathPenalty, 10);
+
+    snake.outOfBounds(game);
+    assert.equal(game.gameOver, true);
+    assert.equal(game.lives, 4);
+    assert.equal(snake.points, -10);
+  })
+
+  it('should detect if snake eats itself', () => {
+    for (let i = 0; i < 10; i++) {
+      snake.instantiate();
+      assert.instanceOf(snake.snakeArray[i], Segment);
+    }
+
+    assert.equal(snake.snakeArray.length, 10);
+
+    let head = snake.snakeArray[0];
+    let snakeSeg = snake.snakeArray[8];
+
+    assert.equal(head.x, 40);
+    assert.equal(head.y, 80);
+    assert.equal(snakeSeg.x, 40);
+    assert.equal(snakeSeg.y, 80);
+
+    head.x = 100;
+    head.y = 150;
+
+    snakeSeg.x = 100;
+    snakeSeg.y = 150;
+
+    assert.equal(head.x, 100);
+    assert.equal(head.y, 150);
+    assert.equal(snakeSeg.x, 100);
+    assert.equal(snakeSeg.y, 150);
+
+    let canvas = {
+      height: 300,
+      width: 300
+    }
+
+    let context = {};
+
+    let game = new Game(canvas, context);
+
+    assert.instanceOf(game, Game);
+    assert.equal(game.canvas.width, 300);
+    assert.equal(game.canvas.height, 300);
+    assert.equal(game.gameOver, false);
+    assert.equal(game.lives, 5);
+    assert.equal(game.deathPenalty, 10);
+
+    snake.eatSelf(game);
+    assert.equal(game.gameOver, true);
+    assert.equal(game.lives, 4);
+    assert.equal(snake.points, -10);
+  })
 });
