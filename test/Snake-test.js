@@ -3,9 +3,11 @@ const Game = require('../lib/Game.js');
 const Food = require('../lib/Food.js');
 const Segment = require('../lib/Segment.js');
 const Snake = require('../lib/Snake.js');
-const jsdom = require('jsdom-global');
+const jsdom = require('jsdom');
 
 jsdom()
+
+const dom = new JSDOM('')
 
 describe('Snake', () => {
     let snake;
@@ -166,7 +168,7 @@ describe('Snake', () => {
     assert.equal(snakeSegment3.data, 2);
   })
 
-  it.skip('should be able to change direction', () => {
+  it('should be able to change direction', () => {
     snake.instantiate();
     assert.instanceOf(snake.snakeArray[0], Segment);
     assert.equal(snake.snakeArray.length, 1);
@@ -177,6 +179,8 @@ describe('Snake', () => {
     let event = {
       keyCode: 38
     }
+
+    keyNum = event.keyCode;
 
     snake.changeDirection();
     assert.equal(segment.direction, 'up');
@@ -196,7 +200,6 @@ describe('Snake', () => {
 
     assert.equal(snake.segAddCount, 3);
     assert.equal(snake.points, 3);
-
   });
 
   it('should reset segAddCount to 0 and appleDetected to false', () => {
@@ -213,6 +216,6 @@ describe('Snake', () => {
 
     assert.equal(snake.segAddCount, 0);
     assert.equal(snake.appleDetected, false);
-  }
-  )
+  });
+
 });
