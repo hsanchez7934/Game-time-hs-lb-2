@@ -5,63 +5,55 @@ const Segment = require('../lib/Segment.js');
 
 
 
-describe('Game', function() {
-  it('should be a function', function() {
+describe('Game', () => {
+
+  let game;
+  let canvas;
+
+  beforeEach(() => {
+    canvas = {
+      width: 500,
+      height: 500
+    }
+
+    game = new Game(canvas, context);
+  });
+
+  it('should be a function', () => {
     assert.isFunction(Game);
   });
 
-  it('should instantiate a new game', function() {
-    var game = new Game();
-
+  it('should instantiate a new game', () => {
     assert.isObject(game);
   });
 
-  it('should start off with an empty snake array', function() {
-    var game = new Game();
+  it('should start off with an empty food object', () => {
+    assert.deepEqual(game.food, {});
+  });
 
-    assert.deepEqual(game.snakeArray, []);
-  })
+  it('should start off with gameover as false', () => {
+    assert.equal(game.gameOver, false)
+  });
 
-  it('should start off with appleDetected property as false', () => {
-    var game = new Game();
+  it('should start off with isRunning as true', () => {
+    assert.equal(game.isRunning, true);
+  });
 
-    assert.equal(game.appleDetected, false)
-  })
+  it('should start off with frameSpeed as 150', () => {
+    assert.equal(game.frameSpeed, 150);
+  });
 
-  it('should start off with gameOver property as false', () => {
-    var game = new Game();
+  it('should start of as level easy', () => {
+    assert.equal(game.level, 'easy');
+  });
 
-    assert.equal(game.gameOver, false);
-  })
+  it('should start off with deathCount as 0', () => {
+    assert.equal(game.deathCount, 0);
+  });
 
-  it('should instantiate a new snake when passed in a length', () => {
-    let game = new Game();
-
-    game.instantiateSnake(3);
-
-    for (var i = 0; i < game.snakeArray.length; i++) {
-      assert.instanceOf(game.snakeArray[i], Segment);
-    }
-
-    assert.equal(game.snakeArray.length, 3);
-  })
-
-  it('should move the snake in different directions', function() {
-    // set timeout, give the snake original coordinates, hit right, wait a few millisec's
-    // and new coordinates should be expected
-    var game = new Game();
-
-    game.instantiateSnake(3);
-    for (var i = 0; i < game.snakeArray.length; i++) {
-      assert.equal(game.snakeArray[i].direction, 'down');
-    }
-
-    assert.equal(game.snakeArray.length, 3);
-
-    if (game.snakeArray[0].direction === 'right') {
-
-    }
-  })
+  it('should start off with deathPenalty as 10', () => {
+    assert.equal(game.deathPenalty, 10);
+  });
 
 // test to make sure it grows whenever it eats food
 
