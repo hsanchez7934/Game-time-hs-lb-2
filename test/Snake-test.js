@@ -67,11 +67,11 @@ describe('Snake', () => {
     assert.isObject(segment);
     assert.equal(segment.direction, 'right');
 
-    assert.equal(segment.x, 40);
-    assert.equal(segment.y, 80);
+    assert.equal(segment.x, 60);
+    assert.equal(segment.y, 120);
     snake.move();
-    assert.equal(segment.x, 80);
-    assert.equal(segment.y, 80);
+    assert.equal(segment.x, 120);
+    assert.equal(segment.y, 120);
   });
 
   it('should be able to move left', () => {
@@ -86,11 +86,11 @@ describe('Snake', () => {
     segment.direction = 'left';
     assert.equal(segment.direction, 'left');
 
-    assert.equal(segment.x, 40);
-    assert.equal(segment.y, 80);
+    assert.equal(segment.x, 60);
+    assert.equal(segment.y, 120);
     snake.move();
     assert.equal(segment.x, 0);
-    assert.equal(segment.y, 80);
+    assert.equal(segment.y, 120);
   });
 
   it('should be able to move up', () => {
@@ -105,11 +105,11 @@ describe('Snake', () => {
     segment.direction = 'up';
     assert.equal(segment.direction, 'up');
 
-    assert.equal(segment.x, 40);
-    assert.equal(segment.y, 80);
+    assert.equal(segment.x, 60);
+    assert.equal(segment.y, 120);
     snake.move();
-    assert.equal(segment.x, 40);
-    assert.equal(segment.y, 40);
+    assert.equal(segment.x, 60);
+    assert.equal(segment.y, 60);
   });
 
   it('should be able to move down', () => {
@@ -124,11 +124,11 @@ describe('Snake', () => {
     segment.direction = 'down';
     assert.equal(segment.direction, 'down');
 
-    assert.equal(segment.x, 40);
-    assert.equal(segment.y, 80);
-    snake.move();
-    assert.equal(segment.x, 40);
+    assert.equal(segment.x, 60);
     assert.equal(segment.y, 120);
+    snake.move();
+    assert.equal(segment.x, 60);
+    assert.equal(segment.y, 180);
 
   });
 
@@ -299,10 +299,10 @@ describe('Snake', () => {
 
     assert.instanceOf(newSeg, Segment);
 
-    assert.equal(newSeg.width, 40);
-    assert.equal(newSeg.height, 40);
-    assert.equal(newSeg.x, 80);
-    assert.equal(newSeg.y, 80);
+    assert.equal(newSeg.width, 60);
+    assert.equal(newSeg.height, 60);
+    assert.equal(newSeg.x, 120);
+    assert.equal(newSeg.y, 120);
     assert.equal(newSeg.direction, 'right');
 
   })
@@ -323,10 +323,10 @@ describe('Snake', () => {
 
     assert.instanceOf(newSeg, Segment);
 
-    assert.equal(newSeg.width, 40);
-    assert.equal(newSeg.height, 40);
+    assert.equal(newSeg.width, 60);
+    assert.equal(newSeg.height, 60);
     assert.equal(newSeg.x, 0);
-    assert.equal(newSeg.y, 80);
+    assert.equal(newSeg.y, 120);
     assert.equal(newSeg.direction, 'left');
 
   });
@@ -347,10 +347,10 @@ describe('Snake', () => {
 
     assert.instanceOf(newSeg, Segment);
 
-    assert.equal(newSeg.width, 40);
-    assert.equal(newSeg.height, 40);
-    assert.equal(newSeg.x, 40);
-    assert.equal(newSeg.y, 40);
+    assert.equal(newSeg.width, 60);
+    assert.equal(newSeg.height, 60);
+    assert.equal(newSeg.x, 60);
+    assert.equal(newSeg.y, 60);
     assert.equal(newSeg.direction, 'up');
 
   });
@@ -371,10 +371,10 @@ describe('Snake', () => {
 
     assert.instanceOf(newSeg, Segment);
 
-    assert.equal(newSeg.width, 40);
-    assert.equal(newSeg.height, 40);
-    assert.equal(newSeg.x, 40);
-    assert.equal(newSeg.y, 120);
+    assert.equal(newSeg.width, 60);
+    assert.equal(newSeg.height, 60);
+    assert.equal(newSeg.x, 60);
+    assert.equal(newSeg.y, 180);
     assert.equal(newSeg.direction, 'down');
 
   });
@@ -386,8 +386,8 @@ describe('Snake', () => {
 
     let newSnake = snake.snakeArray[0];
 
-    assert.equal(newSnake.x, 40);
-    assert.equal(newSnake.y, 80);
+    assert.equal(newSnake.x, 60);
+    assert.equal(newSnake.y, 120);
 
     newSnake.x = -1;
     newSnake.y = -1;
@@ -410,12 +410,12 @@ describe('Snake', () => {
     assert.equal(game.canvas.height, 300);
     assert.equal(game.gameOver, false);
     assert.equal(game.lives, 5);
-    assert.equal(game.deathPenalty, 10);
+    assert.equal(game.deathPenalty, 5);
 
     snake.outOfBounds(game);
     assert.equal(game.gameOver, true);
     assert.equal(game.lives, 4);
-    assert.equal(snake.points, -10);
+    assert.equal(snake.points, -5);
   })
 
   it('should detect if snake eats itself', () => {
@@ -429,10 +429,10 @@ describe('Snake', () => {
     let head = snake.snakeArray[0];
     let snakeSeg = snake.snakeArray[8];
 
-    assert.equal(head.x, 40);
-    assert.equal(head.y, 80);
-    assert.equal(snakeSeg.x, 40);
-    assert.equal(snakeSeg.y, 80);
+    assert.equal(head.x, 60);
+    assert.equal(head.y, 120);
+    assert.equal(snakeSeg.x, 60);
+    assert.equal(snakeSeg.y, 120);
 
     head.x = 100;
     head.y = 150;
@@ -459,11 +459,11 @@ describe('Snake', () => {
     assert.equal(game.canvas.height, 300);
     assert.equal(game.gameOver, false);
     assert.equal(game.lives, 5);
-    assert.equal(game.deathPenalty, 10);
+    assert.equal(game.deathPenalty, 5);
 
     snake.eatSelf(game);
     assert.equal(game.gameOver, true);
     assert.equal(game.lives, 4);
-    assert.equal(snake.points, -10);
+    assert.equal(snake.points, -5);
   })
 });
