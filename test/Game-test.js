@@ -1,10 +1,7 @@
 const {assert} = require('chai');
 const Game = require('../lib/Game.js');
 const Food = require('../lib/Food.js');
-const Segment = require('../lib/Segment.js');
 const Snake = require('../lib/Snake.js');
-
-
 
 describe('Game', () => {
 
