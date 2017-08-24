@@ -5,23 +5,27 @@
   <title>Game Time</title>
 </head>
 <body>
-
   <canvas id="game" width="1550" height="900">
-
   </canvas>
   <div class="stats">
-    <div class="sub-stats"><img src="lib/images/score-icon.png" id="score"/><p id="points">0</p></div>
-    <div class="sub-stats"><img src="lib/images/lives-icon.png" id="lives"/><p id="deaths">0</p></div>
-    <div class="sub-stats"><img src="lib/images/food-icon.png" id="food"/><p id="eat-count">0</p></div>
+    <div class="sub-stats">
+      <img src="lib/images/score-icon.png" id="score"/>
+      <p id="points">0</p>
+    </div>
+    <div class="sub-stats">
+      <img src="lib/images/lives-icon.png" id="lives"/>
+      <p id="deaths">0</p>
+    </div>
+    <div class="sub-stats">
+      <img src="lib/images/food-icon.png" id="food"/>
+      <p id="eat-count">0</p>
+    </div>
     <img src="lib/images/babysnake.png" id="babysnake"/>
   </div>
-
-
   <div class="game-box" id="game-instructions">
-    <img src="https://fontmeme.com/permalink/170823/ad0366ed0a10b34392a631d2f7f2b0a4.png" alt="space-invaders-font" id="game-title" border="0">
-    <img src="https://fontmeme.com/permalink/170823/7a2bc1377ff396dca91314e2a07cc4b6.png" alt="crash-bandicoot-font" id="instructions" border="0">
-
-    <div class="button-box">
+    <img src="https://fontmeme.com/permalink/170824/f864f497340ddd305cd2378736c2279a.png" alt="house-of-1000-corpses-font" id="game-title" border="0">
+    <img src="https://fontmeme.com/permalink/170824/557a6d3beae94fc2777bd22a51f15793.png" alt="crash-bandicoot-font" border="0">
+      <div class="button-box">
       <button id="easy">
         <img src="https://fontmeme.com/permalink/170823/ade27f8bbb6448bd95a672aa0f8779f8.png" alt="space-invaders-font" border="0">
       </button>
@@ -36,6 +40,7 @@
   <div class="game-box" id="game-over-boundary" >
     <img src="https://fontmeme.com/permalink/170823/efbd2b10c23b4aa897d3fcf4ed6c3260.png" alt="the-rocky-horror-picture-show-font" border="0">
     <div class="penalty-box"><span id="death-penalty">0</span><img src="https://fontmeme.com/permalink/170823/1adedf32870b5d1835d3152332eb6aef.png" alt="crash-bandicoot-font" border="0"></div>
+    <img src="https://fontmeme.com/permalink/170824/725ca051119903645650f7972f4bb464.png" alt="crash-bandicoot-font" border="0"/>
     <div class="button-box" id="zero-lives-buttons">
       <button id="restart-btn">
         <img src="https://fontmeme.com/permalink/170823/04a2dd828e5352526c074830bebffa84.png" alt="space-invaders-font" border="0">
@@ -43,11 +48,10 @@
       <button id="refresh-btn">
         <img src="https://fontmeme.com/permalink/170824/3dcd5c0856bde1a946c149f4359bbb77.png" alt="space-invaders-font" border="0">
       </button>
-
     </div>
   </div>
     <div class="game-box" id="zero-lives-screen" >
-      <img src="https://fontmeme.com/permalink/170824/c1e4fa2b60e613fc794e74e0881b96c8.png" alt="space-invaders-font" border="0" id="game-over-img"/>
+      <img src="https://fontmeme.com/permalink/170824/d8d39a11dbb1616cf841593817cc65d0.png" alt="house-of-1000-corpses-font" id="game-over-img" border="0">
       <div class="button-box">
         <button id="start-over">
           <img src="https://fontmeme.com/permalink/170824/3dcd5c0856bde1a946c149f4359bbb77.png" alt="space-invaders-font" border="0">
@@ -62,6 +66,7 @@
   <img src="lib/images/broccoli.png" id="broccoli"/>
   <img src="lib/images/popcorn.png" id="popcorn"/>
   <img src="lib/images/icecream.png" id="icecream"/>
+  <img src="lib/images/burger.png" id="burger"/>
   <img src="lib/images/lil-snake-head-left.png" id="snake-head-left"/>
   <img src="lib/images/lil-snake-head-right.png" id="snake-head-right"/>
   <img src="lib/images/lil-snake-head-up.png" id="snake-head-up"/>
@@ -73,10 +78,6 @@
   <img src="lib/images/body-horizontal.png" id="body-horizontal"/>
   <img src="lib/images/body-vertical.png" id="body-vertical"/>
   <img src="lib/images/desert.jpg" id="desert"/>
-
-
-
-
 
   <script src="main.bundle.js"></script>
 </body>
