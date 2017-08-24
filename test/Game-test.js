@@ -54,13 +54,13 @@ describe('Game', () => {
   });
 
   it('should start off with deathPenalty as 10', () => {
-    assert.equal(game.deathPenalty, 10);
+    assert.equal(game.deathPenalty, 5);
   });
 
   it('should change snake properties when level is medium', () => {
 
     assert.equal(game.frameSpeed, 200);
-    assert.equal(game.deathPenalty, 10);
+    assert.equal(game.deathPenalty, 5);
     assert.equal(game.level, 'easy');
 
     assert.equal(snake.numSegsAdd, 1);
@@ -72,7 +72,7 @@ describe('Game', () => {
 
     game.changeVar(snake);
     assert.equal(game.frameSpeed, 150);
-    assert.equal(game.deathPenalty, 20);
+    assert.equal(game.deathPenalty, 10);
 
     assert.equal(snake.numSegsAdd, 3);
     assert.equal(snake.startLength, 3);
@@ -81,7 +81,7 @@ describe('Game', () => {
   it('should change snake properties when level is difficult', () => {
 
     assert.equal(game.frameSpeed, 200);
-    assert.equal(game.deathPenalty, 10);
+    assert.equal(game.deathPenalty, 5);
     assert.equal(game.level, 'easy');
 
     assert.equal(snake.numSegsAdd, 1);
@@ -93,7 +93,7 @@ describe('Game', () => {
 
     game.changeVar(snake);
     assert.equal(game.frameSpeed, 100);
-    assert.equal(game.deathPenalty, 50);
+    assert.equal(game.deathPenalty, 20);
 
     assert.equal(snake.numSegsAdd, 5);
     assert.equal(snake.startLength, 5);
@@ -117,7 +117,6 @@ describe('Game', () => {
   });
 
   it('should change game gameOver and lives properties', () => {
-    // let snake = new Snake();
 
     assert.equal(game.gameOver, false);
     assert.equal(game.lives, 5);
@@ -127,7 +126,7 @@ describe('Game', () => {
 
     assert.equal(game.gameOver, true);
     assert.equal(game.lives, 4);
-    assert.equal(snake.points, -10);
+    assert.equal(snake.points, -5);
   });
 
   it('should pause game', () => {

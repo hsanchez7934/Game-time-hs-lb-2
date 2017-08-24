@@ -30,12 +30,12 @@ describe('Food', () => {
 
   it('should contain an array of 7 images', () => {
     assert.isArray(food.imgArray);
-    assert.deepEqual(food.imgArray.length, 7);
+    assert.deepEqual(food.imgArray.length, 9);
   });
 
   it('img property should contain value of imgArry item 1', () => {
     assert.isArray(food.imgArray);
-    assert.equal(food.imgArray.length, 7);
+    assert.equal(food.imgArray.length, 8);
     assert.equal(food.img, food.imgArray[0]);
   });
 
@@ -51,12 +51,12 @@ describe('Food', () => {
 
   it('should detect if food has collided with snake', () => {
 
-    food = new Food(40, 40, 40, 80);
+    food = new Food(60, 60, 60, 120);
 
-    assert.equal(food.x, 40);
-    assert.equal(food.y, 80);
-    assert.equal(food.width, 40);
-    assert.equal(food.height, 40);
+    assert.equal(food.x, 60);
+    assert.equal(food.y, 120);
+    assert.equal(food.width, 60);
+    assert.equal(food.height, 60);
 
     let newSnake = new Snake();
 
@@ -68,8 +68,8 @@ describe('Food', () => {
 
     assert.instanceOf(head, Segment);
     assert.equal(newSnake.snakeArray.length, 1);
-    assert.equal(head.x, 40);
-    assert.equal(head.y, 80);
+    assert.equal(head.x, 60);
+    assert.equal(head.y, 120);
 
     let game = new Game();
 

@@ -25,8 +25,4 @@ describe('Square', () => {
     assert.equal(square.y, 20);
   });
 
-  it('should take a color', () => {
-    assert.equal(square.color, '#000');
-  });
-
 })
