@@ -35,7 +35,7 @@ describe('Food', () => {
 
   it('img property should contain value of imgArry item 1', () => {
     assert.isArray(food.imgArray);
-    assert.equal(food.imgArray.length, 8);
+    assert.equal(food.imgArray.length, 9);
     assert.equal(food.img, food.imgArray[0]);
   });
 
