@@ -19,14 +19,17 @@ img {
 
 .button-box {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .button-box button {
-  background-color: magenta;
+  background-color: white;
   border-color: black;
   border-radius: 25px;
   color: green;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   font-size: 20px;
   font-weight: bold;
   height: 50px;
@@ -46,6 +49,7 @@ img {
   position: absolute;
   top: 110px;
   width: 1200px;
+  border-radius: 25px;
 }
 
 #game-over-boundary {
@@ -60,6 +64,24 @@ img {
   display: block;
   bottom: 0;
   right: 0;
+}
+
+#death-penalty {
+  color: #f52414;
+  font-size: 40px;
+}
+
+.penalty-box {
+  width: auto;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.penalty-box span {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .stats {
@@ -97,4 +119,46 @@ img {
   position: absolute;
   top: -100px;
   right: 30px;
+}
+
+.game-box img {
+  display: block;
+}
+
+#game-title {
+  margin-bottom: 30px;
+}
+
+#easy {
+  background-color: green;
+}
+
+#medium {
+  background-color: #f29202;
+}
+
+#difficult {
+  background-color: red;
+}
+
+#zero-lives-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#zero-lives-buttons button,
+#zero-lives-screen button {
+  width: 350px;
+  height: 70px;
+}
+
+#game-over-img {
+  display: block;
+  margin: 50px;
+}
+
+button:hover {
+  cursor: pointer;
 }
