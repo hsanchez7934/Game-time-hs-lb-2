@@ -133,5 +133,21 @@ describe('Game', () => {
     assert.equal(snake.points, -10);
   });
 
-  
+  it('should pause game', () => {
+
+    let event = {
+      keyCode: 32
+    }
+
+    let gameLoop = function() {};
+
+    assert.equal(game.isRunning, true);
+    game.isRunning = false;
+    assert.equal(game.isRunning, false);
+
+    game.checkKey(event, snake, gameLoop);
+
+    assert.equal(game.isRunning, true);
+  });
+
 })
