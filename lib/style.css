@@ -82,7 +82,7 @@ p {
   position: absolute;
   right: 30px;
   top: 50px;
-  width: 250px;
+  width: 270px;
 }
 
 .sub-stats {
@@ -91,7 +91,7 @@ p {
   height: 125px;
   justify-content: flex-start;
   position: relative;
-  width: 250px;
+  width: 270px;
 }
 
 .sub-stats img {
@@ -139,7 +139,7 @@ p {
 }
 
 #game-title {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 #medium {
